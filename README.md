@@ -8,7 +8,7 @@
 
 > StudentToDo , is a todo list manager for students and normal users created with Node.js , Express and MongoDB 
 
-### ✨ [Demo](localhost:3000)
+### ✨ [Live Demo] (paste this url in the browser "localhost:3000")
 
 ## Install
 
