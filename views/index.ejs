@@ -1,0 +1,38 @@
+<%- include("./partials/header") %>
+    <video playsinline autoplay muted loop>
+        <source src="/images/ps3.mp4" type="video/mp4">
+    </video>
+    <div class="container mt-5">
+        <h1>StudentToDo</h1>
+        <a href="/login" class="btn btn-primary">Login</a>
+        <a href="/register" class="btn btn-danger">Register</a>
+    </div>
+    <style>
+        video {
+            object-fit: cover;
+            width: 100vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -99;
+        }
+
+        body {
+            /* background-image: url(); */
+            background-size: cover;
+            background-repeat: no-repeat;
+
+        }
+
+        .container {
+            top: 50%;
+            left: 50%;
+            width: 30em;
+            height: 18em;
+            transform: translate(-50%, -50%);
+        
+            position: fixed;
+        }
+    </style>
+    <%- include("./partials/footer") %>
