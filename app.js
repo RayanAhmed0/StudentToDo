@@ -38,6 +38,12 @@ app
 
     res.render("home", { user: req.session.user, todo: allTodo });
 
+  }).get("/list", authenticateUser, async (req, res) => {
+    const allTodo = await Todo.find();
+    res.render("list", { user: req.session.user, todo: allTodo });
+  }).get("/about", authenticateUser, async (req, res) => {
+    const allTodo = await Todo.find();
+    res.render("about", { user: req.session.user, todo: allTodo });
   });
 
 // route for handling post requirests

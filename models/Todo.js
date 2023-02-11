@@ -8,6 +8,10 @@ const TodoSchema = new mongoose.Schema({
   }, userEmail: {
     type: String,
     required: true,
+  },
+  AddDate: {
+    type: String,
+    required: true
   }
 });
 

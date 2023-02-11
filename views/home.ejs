@@ -11,20 +11,29 @@
 
             <a class="navbar-brand " href="/">StudentToDo</a>
             <ul class="navbar-nav mr-auto">
+
                 <li class="nav-item">
-                    <a class="nav-link" href="about.html">About</a>
+                    <a class="nav-link" href="/home">Home</a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/list">ListAllToDo</a>
+
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
+
                 </li>
                 <li class="nav-item"></li>
                 <div class="container">
 
                     <h5>Logged in as : <%= user.email %>
-                    </h5> <a href="/logout" class="btn btn-danger">Logout</a>
+                    </h5> <a style="margin-left: 20px;" href="/logout" class="btn btn-danger">Logout</a>
                 </div>
                 </li>
             </ul>
             <p id="ctime">Current Time:</p>
-            <p id="time">
-            </p>
+            <p id="time"></p>
         </nav>
         <script>
 
@@ -33,6 +42,7 @@
                 var time = date.toLocaleTimeString('en-US', { hour12: true });
                 document.getElementById("time").innerHTML = time;
             }
+
 
             setInterval(updateTime, 1000);
 
@@ -43,10 +53,9 @@
                 <input type="text" name="todo" class="form-control" placeholder="Enter The task">
                 <input type="submit" value="Add task" class="btn btn-md btn-primary mx-3">
                 <input type="text" name="userEmail" hidden value="<%= user.email %>">
+                <input type="text" name="AddDate" hidden value="<%= Date() %>">
             </form>
             <ul class="list-group my-5">
-
-
 
 
 
@@ -56,6 +65,11 @@
                             <%= todos.todo %>
 
                                 <a href="/delete/todo/<%= todos._id %>" class="btn btn-danger  mx-3">Delete</a>
+                                <i>
+                                    <br>
+                                    <%= todos.AddDate %>
+
+                                </i>
                         </li>
                         <% } else{ %>
 

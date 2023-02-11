@@ -6,7 +6,8 @@ router
   .post("/add/todo", (req, res) => {
     const { todo } = req.body;
     const { userEmail } = req.body;
-    const newTodo = new Todo({ todo, userEmail });
+    const { AddDate } = req.body;
+    const newTodo = new Todo({ todo, userEmail, AddDate });
 
     // save the todo
     newTodo
