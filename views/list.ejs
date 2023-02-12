@@ -11,7 +11,6 @@
 
             <a class="navbar-brand " href="/">StudentToDo</a>
             <ul class="navbar-nav mr-auto">
-
                 <li class="nav-item">
                     <a class="nav-link" href="/home">Home</a>
 
@@ -33,7 +32,8 @@
                 </li>
             </ul>
             <p id="ctime">Current Time:</p>
-            <p id="time"></p>
+            <p id="time">
+            </p>
         </nav>
         <script>
 
@@ -43,39 +43,35 @@
                 document.getElementById("time").innerHTML = time;
             }
 
-
             setInterval(updateTime, 1000);
 
 
         </script>
         <div class="container mt-5">
-            <form action="/add/todo" method="POST" class="d-flex">
-                <input type="text" name="todo" class="form-control" placeholder="Enter The task">
-                <input type="submit" value="Add task" class="btn btn-md btn-primary mx-3">
-                <input type="text" name="userEmail" hidden value="<%= user.email %>">
-                <input type="text" name="AddDate" hidden value="<%= Date() %>">
-            </form>
+
             <ul class="list-group my-5">
 
 
 
                 <% todo.forEach(todos=> { %>
-                    <% if(todos.userEmail==user.email){ %>
-                        <li class="list-group-item ">
-                            <%= todos.todo %>
 
-                                <a href="/delete/todo/<%= todos._id %>" class="btn btn-danger  mx-3">Delete</a>
-                                <i>
+                    <li class="list-group-item ">
+                        <%= todos.todo %>
+
+                            <i> <strong>
                                     <br>
-                                    <%= todos.AddDate %>
+                                    <%= todos.userEmail %>
+                                </strong></i>
+                            <i>
+                                <br>
+                                <%= todos.AddDate %>
 
-                                </i>
-                        </li>
-                        <% } else{ %>
+                            </i>
 
-                            <% } %>
+                    </li>
 
-                                <% }) %>
+
+                    <% }) %>
 
             </ul>
         </div>
