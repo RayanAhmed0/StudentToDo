@@ -3,12 +3,12 @@ const mongoose = require("mongoose");
 const cookieSession = require("cookie-session");
 const bcrypt = require("bcrypt");
 const Todo = require("./models/Todo");
-
 const User = require("./models/User");
-
 const authenticateUser = require("./middlewares/authenticateUser");
-
 const app = express();
+const methodOverride = require('method-override');
+app.use(methodOverride('_method', { methods: ['POST', 'GET'] }));
+
 
 require('./startup/db')();
 require('./startup/middleware')(app);
@@ -21,7 +21,7 @@ app.use(
   })
 );
 
-// route for serving frontend files
+// routes
 app
   .get("/", (req, res) => {
     res.render("login");
@@ -38,21 +38,26 @@ app
 
     res.render("home", { user: req.session.user, todo: allTodo });
 
-  }).get("/list", authenticateUser, async (req, res) => {
+  })
+
+  .get("/list", authenticateUser, async (req, res) => {
     const allTodo = await Todo.find();
     res.render("list", { user: req.session.user, todo: allTodo });
-  }).get("/about", authenticateUser, async (req, res) => {
+  })
+
+  .get("/about", authenticateUser, async (req, res) => {
     const allTodo = await Todo.find();
     res.render("about", { user: req.session.user, todo: allTodo });
   });
 
-// route for handling post requirests
+
+// routes
 app
   .post("/login", async (req, res) => {
     const { email, password } = req.body;
 
     // check for missing filds
-    if (!email || !password) return res.send("Please enter all the fields");
+    // if (!email || !password) return res.send("Please enter all the fields");
 
     const doesUserExits = await User.findOne({ email });
 
@@ -76,7 +81,7 @@ app
     const { email, password } = req.body;
 
     // check for missing filds
-    if (!email || !password) return res.send("Please enter all the fields");
+    // if (!email || !password) return res.send("Please enter all the fields");
 
     const doesUserExitsAlreay = await User.findOne({ email });
 

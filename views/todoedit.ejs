@@ -1,7 +1,4 @@
 <%- include("./partials/header") %>
-
-
-
     <video playsinline autoplay muted loop>
         <source src="/images/ps3.mp4" type="video/mp4">
     </video>
@@ -11,6 +8,7 @@
 
             <a class="navbar-brand " href="/">StudentToDo</a>
             <ul class="navbar-nav mr-auto">
+
                 <li class="nav-item">
                     <a class="nav-link" href="/home">Home</a>
 
@@ -26,41 +24,41 @@
                 <li class="nav-item"></li>
                 <div class="container">
 
-                    <h5>Logged in as : <%= user.email %>
                     </h5> <a style="margin-left: 20px;" href="/logout" class="btn btn-danger">Logout</a>
                 </div>
                 </li>
             </ul>
             <p id="ctime">Current Time:</p>
-            <p id="time">
-            </p>
+            <p id="time"></p>
         </nav>
-
+        <script>
+            function updateTime() {
+                var date = new Date();
+                var time = date.toLocaleTimeString('en-US', { hour12: true });
+                document.getElementById("time").innerHTML = time;
+            }
+            setInterval(updateTime, 1000);
+        </script>
         <div class="container mt-5">
 
-            <input type="text" id="myInput" class="form-control" onkeyup="myFunction()"
-                placeholder="Search for ToDo by :  Email / Todo / Day / Month / Year">
-
-
-            <ul class="list-group my-5" id="myUL">
-
-
+            <ul class="list-group my-5">
                 <% todo.forEach(todos=> { %>
-
-                    <li class="list-group-item ">
-                        <a>
-                            <%= todos.todo %>
-                                <i> <strong>
-                                        <br>
-                                        <%= todos.userEmail %>
-                                    </strong></i>
+                    <% if(todo.length> 0){ %>
+                        <% if(todos._id==todoid){ %>
+                            <li class="list-group-item ">
+                                <form action="/update/todo/<%=todos._id%>?_method=PUT" method="POST">
+                                    <input type="text" class="form-control" value="<%= todos.todo%>" name="todo">
+                                    <button type="submit" class="btn btn-success mx-2">Done</button>
+                                </form>
                                 <i>
                                     <br>
-                                    <%= todos.AddDate %>
                                 </i>
-                    </li>
-                    </a>
-                    <% }) %>
+                            </li>
+                            <% } %>
+                                <% } %>
+                                    <% }) %>
+
+
             </ul>
         </div>
     </div>
@@ -138,37 +136,5 @@
         }
     </style>
 
-    <script>
 
-        function updateTime() {
-            var date = new Date();
-            var time = date.toLocaleTimeString('en-US', { hour12: true });
-            document.getElementById("time").innerHTML = time;
-        }
-
-        setInterval(updateTime, 1000);
-
-
-    </script>
-    <script>
-        function myFunction() {
-            // Declare variables
-            var input, filter, ul, li, a, i, txtValue;
-            input = document.getElementById('myInput');
-            filter = input.value.toUpperCase();
-            ul = document.getElementById("myUL");
-            li = ul.getElementsByTagName('li');
-
-            // Loop through all list items, and hide those who don't match the search query
-            for (i = 0; i < li.length; i++) {
-                a = li[i].getElementsByTagName("a")[0];
-                txtValue = a.textContent || a.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    li[i].style.display = "";
-                } else {
-                    li[i].style.display = "none";
-                }
-            }
-        }
-    </script>
     <%- include("./partials/footer") %>
