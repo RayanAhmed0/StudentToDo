@@ -15,8 +15,15 @@
 ![register](https://user-images.githubusercontent.com/66013192/216673907-9196a02e-3cba-41ad-80a2-b78381c09c84.png)
 ## Home Page
 ![home](https://user-images.githubusercontent.com/66013192/216674042-b5137123-cc29-4b08-a931-0c598f29f245.png)
-## Tasks in the home Page
-![tasks](https://user-images.githubusercontent.com/66013192/216674100-a50cc9a7-bee7-4fa8-a8de-6b1ecd7d1b1d.png)
+## Tasks added in the home page
+![tasks](https://user-images.githubusercontent.com/66013192/219495588-f0f7f282-a8df-4390-bffc-b1cbeddab73a.png)
+## Edit a certain task
+![edit](https://user-images.githubusercontent.com/66013192/219495741-3450b673-4d5e-430d-af84-c45f9bc0cfda.png)
+
+## List All tasks and search 
+![listall](https://user-images.githubusercontent.com/66013192/219495758-4376dc58-ee11-40cf-997a-32064b25b8fa.png)
+
+
 ## About Page
 ![about](https://user-images.githubusercontent.com/66013192/216674163-f8b89f21-f985-44d9-a77c-b7ab7fa4129a.png)
 
