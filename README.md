@@ -49,7 +49,7 @@ npm run test
 
 ## Author
 
-👤 **Rayan Alshanaiber , Abdullah Aldosari , Abdulmajeed Alrashoudi , Ibrahim Alghofili**
+👤 **Rayan Alshanaiber** , **Abdullah Aldosari** , **Abdulmajeed Alrashoudi** , **Ibrahim Alghofili**
 
 
 ## Show your support
